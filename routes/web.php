@@ -5,15 +5,14 @@ use Illuminate\Support\Facades\Route;
 
 // Homepage Route
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/', 'App\Http\Controllers\WelcomeController@welcome')->name('welcome');
+    Route::get('/', 'App\Http\Controllers\HomeController@home')->name('home');
 });
 
-// Public Routes
-
-
 // Auth Routes
+Auth::routes();
 
-
+Route::middleware(['auth'])->group(function () {
+});
 // Route::get('/', function () {
 //     return view('welcome');
 // });
